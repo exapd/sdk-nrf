@@ -109,7 +109,7 @@ manifest:
     # changes.
     - name: hostap
       repo-path: sdk-hostap
-      path: modules/lib/hostap
+      path: nrf-sdk/modules/lib/hostap
       revision: c54b1efd0eb37ace8e44d6002398c348a7581648
       userdata:
         ncs:
@@ -119,26 +119,26 @@ manifest:
     - name: mcuboot
       repo-path: sdk-mcuboot
       revision: v1.10.0-ncs1
-      path: bootloader/mcuboot
+      path: nrf-sdk/bootloader/mcuboot
     - name: qcbor
       url: https://github.com/laurencelundblade/QCBOR.git
       revision: b0e7033268e88c9f27146fa9a1415ef4c19ebaff
-      path: modules/tee/tf-m/qcbor
+      path: nrf-sdk/modules/tee/tf-m/qcbor
     - name: mbedtls
       path: modules/crypto/mbedtls
       repo-path: sdk-mbedtls
       revision: v3.3.0-ncs1
     - name: nrfxlib
       repo-path: sdk-nrfxlib
-      path: nrfxlib
+      path: nrf-sdk/nrfxlib
       revision: v2.4.1
     - name: trusted-firmware-m
       repo-path: sdk-trusted-firmware-m
-      path: modules/tee/tf-m/trusted-firmware-m
+      path: nrf-sdk/modules/tee/tf-m/trusted-firmware-m
       revision: v1.7.0-ncs1
     - name: matter
       repo-path: sdk-connectedhomeip
-      path: modules/lib/matter
+      path: nrf-sdk/modules/lib/matter
       revision: v2.4.1
       submodules:
         - name: nlio
@@ -170,7 +170,7 @@ manifest:
         - dragoon
     - name: cjson
       repo-path: sdk-cjson
-      path: modules/lib/cjson
+      path: nrf-sdk/modules/lib/cjson
       revision: c6af068b7f05207b28d68880740e4b9ec1e4b50a
       userdata:
         ncs:
@@ -189,7 +189,7 @@ manifest:
         - find-my
     - name: azure-sdk-for-c
       repo-path: azure-sdk-for-c
-      path: modules/lib/azure-sdk-for-c
+      path: nrf-sdk/modules/lib/azure-sdk-for-c
       revision: 308c171cb4b5eed266649012a68406487ec81fb2
       userdata:
         ncs:
@@ -198,7 +198,7 @@ manifest:
           compare-by-default: false
     - name: cirrus
       repo-path: sdk-mcu-drivers
-      path: modules/hal/cirrus-logic
+      path: nrf-sdk/modules/hal/cirrus-logic
       revision: 9f6b3812237fbb0d4157ba3584c13f1644fcbe3a
       userdata:
         ncs:
@@ -207,7 +207,7 @@ manifest:
           compare-by-default: false
     - name: openthread
       repo-path: sdk-openthread
-      path: modules/lib/openthread
+      path: nrf-sdk/modules/lib/openthread
       revision: d5a6630a839477ffb68686f0315f860cc5bc1238
       userdata:
         ncs:
@@ -215,33 +215,10 @@ manifest:
           upstream-sha: d9abe3071c0131a4adb5d7e7451319b735e6d855
           compare-by-default: false
 
-    # Other third-party repositories.
-    - name: cmock
-      path: test/cmock
-      submodules: true
-      revision: f65066f15d8248e6dcb778efb8739904a4512087
-      remote: throwtheswitch
-    - name: memfault-firmware-sdk
-      path: modules/lib/memfault-firmware-sdk
-      revision: 0.43.3
-      remote: memfault
-    - name: ant
-      repo-path: sdk-ant
-      revision: 01087e4e6d2a9c4dec759ad6223d39e0cfb2bfa2
-      remote: ant-nrfconnect
-      groups:
-        - ant
-    - name: bsim
-      repo-path: bsim_west
-      remote: babblesim
-      revision: 908ffde6298a937c6549dbfa843a62caab26bfc5
-      import:
-        path-prefix: tools
-
 
   # West-related configuration for the nrf repository.
   self:
     # This repository should be cloned to ncs/nrf.
-    path: nrf
+    path: nrf-sdk/nrf
     # This line configures west extensions.
     west-commands: scripts/west-commands.yml
